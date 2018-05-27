@@ -1,0 +1,6 @@
+{
+  "extends": "@ngxrb/rules",
+  "rules": {
+    "no-any": false // The library need to use any
+  }
+}

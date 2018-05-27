@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "EditorConfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "eg2.tslint",
+    "kisstkondoros.vscode-codemetrics",
+    "joelday.docthis"
+  ]
+}

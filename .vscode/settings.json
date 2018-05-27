@@ -1,0 +1,18 @@
+{
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "tslint.autoFixOnSave": true,
+  "codemetrics.basics.ComplexityLevelExtreme": 25,
+  "codemetrics.basics.ComplexityLevelExtremeDescription": "Extreme",
+  "codemetrics.basics.ComplexityLevelHigh": 10,
+  "codemetrics.basics.ComplexityLevelHighDescription": "High",
+  "codemetrics.basics.ComplexityLevelNormal": 5,
+  "codemetrics.basics.ComplexityLevelNormalDescription": "Normal",
+  "codemetrics.basics.ComplexityLevelLow": 0,
+  "codemetrics.basics.ComplexityLevelLowDescription": "Low",
+  "codemetrics.basics.ComplexityTemplate": "{1} complexity: {0}",
+  "codemetrics.basics.DecorationModeEnabled": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
+}
