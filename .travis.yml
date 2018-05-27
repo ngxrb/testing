@@ -9,10 +9,13 @@ cache:
   directories:
     - $HOME/.npm
 
+branches:
+  only:
+    - master
+
 jobs:
   include:
     - stage: release
-      if: branch = master
       script: skip
       deploy:
         provider: script

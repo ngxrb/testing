@@ -1,0 +1,21 @@
+﻿# https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.vscode
+.editorconfig
+
+# build tools
+.gitignore
+.npmignore
+.prettierignore
+.travis.yml
+
+# documentation
+/docs
+RULES.md
+
+# misc
+npm-debug.log
