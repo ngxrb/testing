@@ -90,12 +90,6 @@
       {
         "path": "@semantic-release/npm",
         "pkgRoot": "dist/@ngxrb/testing"
-      },
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "package.json"
-        ]
       }
     ]
   },
