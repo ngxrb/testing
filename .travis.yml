@@ -1,12 +1,8 @@
 language: node_js
 
 node_js:
-  - 6
   - 8
   - 10
-
-install:
-  - npm ci
 
 cache:
   directories:
@@ -16,10 +12,15 @@ branches:
   only:
     - master
 
+sudo: required
+
+addons:
+  chrome: stable
+
 jobs:
   include:
     - stage: release
-      script: skip
+      script: npm run build
       deploy:
         provider: script
         skip_cleanup: true

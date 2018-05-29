@@ -1,0 +1,13 @@
+{
+  "name": "@ngxrb/testing",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0",
+    "@angular/core": "^6.0.0",
+    "mobx": "^4.3.0",
+    "rxjs": "^6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
