@@ -70,12 +70,12 @@
   "private": false,
   "scripts": {
     "ng": "ng",
-    "build": "ng build @ngxrb/testing",
-    "test": "ng test @ngxrb/testing --browsers ChromeHeadlessNoSandbox --watch false",
-    "lint": "ng lint @ngxrb/testing --fix --type-check",
-    "coverage": "ng test @ngxrb/testing --watch false --code-coverage --browsers ChromeHeadless",
-    "docs": "compodoc -p projects/ngxrb/testing/tsconfig.lib.json --disablePrivate --hideGenerator",
-    "postpublish": "cp -r dist/@ngxrb/testing/package.json projects/ngxrb/testing"
+    "build": "ng build",
+    "test": "ng test --browsers ChromeHeadlessNoSandbox --watch false",
+    "test:watch": "ng test",
+    "lint": "ng lint --fix --type-check",
+    "coverage": "npm run test -- --code-coverage",
+    "docs": "compodoc -p src/tsconfig.lib.json --disablePrivate --hideGenerator"
   },
   "prettier": {
     "printWidth": 100,
