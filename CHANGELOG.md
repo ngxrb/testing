@@ -1,3 +1,11 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/ngxrb/testing/compare/v1.0.2...v1.1.0) (2018-05-29)
+
+
+### Features
+
+* **component:** added support to test components ([bf36845](https://github.com/ngxrb/testing/commit/bf36845))
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://github.com/ngxrb/testing/compare/v1.0.1...v1.0.2) (2018-05-29)
 
