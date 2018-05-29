@@ -1,3 +1,11 @@
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/ngxrb/testing/compare/v1.1.2...v1.1.3) (2018-05-29)
+
+
+### Bug Fixes
+
+* **ci:** wrong package name ([5c26830](https://github.com/ngxrb/testing/commit/5c26830))
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/ngxrb/testing/compare/v1.1.1...v1.1.2) (2018-05-29)
 
