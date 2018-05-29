@@ -1,3 +1,13 @@
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/ngxrb/testing/compare/v1.0.1...v1.0.2) (2018-05-29)
+
+
+### Bug Fixes
+
+* **files:** moved files ([74da0ac](https://github.com/ngxrb/testing/commit/74da0ac))
+* **files:** moved structure ([47ca0d3](https://github.com/ngxrb/testing/commit/47ca0d3))
+* **merge:** merged with master ([ede9eee](https://github.com/ngxrb/testing/commit/ede9eee))
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/ngxrb/testing/compare/v1.0.0...v1.0.1) (2018-05-28)
 
