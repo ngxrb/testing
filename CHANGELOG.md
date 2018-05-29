@@ -1,3 +1,11 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/ngxrb/testing/compare/v1.1.0...v1.1.1) (2018-05-29)
+
+
+### Bug Fixes
+
+* **ci:** wip npm release ([013314c](https://github.com/ngxrb/testing/commit/013314c))
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/ngxrb/testing/compare/v1.0.2...v1.1.0) (2018-05-29)
 
