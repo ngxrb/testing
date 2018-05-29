@@ -95,7 +95,7 @@
     "publish": [
       {
         "path": "@semantic-release/npm",
-        "pkgRoot": "dist/@ngxrb/testing"
+        "pkgRoot": "dist"
       }
     ]
   },
