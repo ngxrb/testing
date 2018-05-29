@@ -18,6 +18,11 @@ describe('MethodIsCalledArgs', () => {
     expect(model.hasOwnProperty('method')).toBeTruthy();
   });
 
+  it('.method is setted in the constructor', () => {
+    model = new MethodIsCalledArgs(testString);
+    expect(model.method).toEqual(testString);
+  });
+
   it('.onMethod exists', () => {
     expect(model.hasOwnProperty('onMethod')).toBeTruthy();
   });
