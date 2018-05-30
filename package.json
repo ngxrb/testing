@@ -95,6 +95,10 @@
       {
         "path": "@semantic-release/npm",
         "pkgRoot": "./dist"
+      },
+      {
+        "path": "@semantic-release/git",
+        "assets": ["package.json", "npm-shrinkwrap.json"]
       }
     ]
   },
