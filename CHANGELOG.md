@@ -1,3 +1,17 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/ngxrb/testing/compare/v1.1.4...v1.2.0) (2018-05-30)
+
+
+### Bug Fixes
+
+* **tslint:** fixed rules dependencies ([59989b6](https://github.com/ngxrb/testing/commit/59989b6))
+* better helper to test components ([515451b](https://github.com/ngxrb/testing/commit/515451b))
+
+
+### Features
+
+* check component testing ([5529b8a](https://github.com/ngxrb/testing/commit/5529b8a))
+
 <a name="1.1.4"></a>
 ## [1.1.4](https://github.com/ngxrb/testing/compare/v1.1.3...v1.1.4) (2018-05-30)
 
