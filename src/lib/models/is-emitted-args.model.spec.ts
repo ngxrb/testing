@@ -1,5 +1,4 @@
 import { testString } from '../../public_api';
-import { testStringArray } from '../data/test.data';
 import { IsEmittedArgs } from './is-emitted-args.model';
 
 describe('IsEmittedArgs', () => {
@@ -32,13 +31,10 @@ describe('IsEmittedArgs', () => {
   });
 
   it('.onMethodArgs exists', () => {
-    expect(model.hasOwnProperty('onMethodArgs')).toBeFalsy();
-    model.onMethodArgs = testStringArray;
     expect(model.hasOwnProperty('onMethodArgs')).toBeTruthy();
   });
 
   it('.onMethodArgs is an array', () => {
-    model.onMethodArgs = testStringArray;
     expect(model.onMethodArgs instanceof Array).toBeTruthy();
   });
 });

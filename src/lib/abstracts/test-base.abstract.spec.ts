@@ -1,9 +1,10 @@
 import { Observable } from 'rxjs';
 import { testModel, testObservable, testObservableError, testString } from '../data/test.data';
+import { MethodIsCalledArgs } from '../models/method-is-called-args.model';
 import { TestModel } from '../models/test.model';
 import { TestBaseAbstract } from './test-base.abstract';
 
-class TestClass {
+export class TestClass {
   public property: string = testString;
   public propertyWithValue: any = { value: testString };
   public propertyModel: TestModel = testModel;
@@ -90,38 +91,28 @@ describe('TestBaseAbstract', () => {
     test.isTypeOf('property', 'string');
   });
 
-  it('methodIsCalled', () => {
-    test.methodIsCalled({ method: 'protectedMethod' });
-  });
-
   it('methodIsCalled with onMethod', () => {
-    test.methodIsCalled({ method: 'protectedMethod', onMethod: 'method' });
+    test.methodIsCalled(new MethodIsCalledArgs('protectedMethod', 'method'));
   });
 
   it('methodIsCalled with methodArgs', () => {
-    test.methodIsCalled({
-      method: 'protectedMethodWithArgs',
-      onMethod: 'method',
-      methodArgs: [testString]
-    });
+    const method: MethodIsCalledArgs = new MethodIsCalledArgs('protectedMethodWithArgs', 'method');
+    method.methodArgs = [testString];
+    test.methodIsCalled(method);
   });
 
   it('methodIsCalled with onMethodArgs', () => {
-    test.methodIsCalled({
-      method: 'protectedMethod',
-      onMethod: 'methodWithArgs',
-      onMethodArgs: [testString]
-    });
+    const method: MethodIsCalledArgs = new MethodIsCalledArgs('protectedMethod', 'methodWithArgs');
+    method.onMethodArgs = [testString];
+    test.methodIsCalled(method);
   });
 
   it('methodIsCalled with object', () => {
     const event: Event = new Event('');
-    test.methodIsCalled({
-      object: event,
-      method: 'preventDefault',
-      onMethod: 'eventMethod',
-      onMethodArgs: [event]
-    });
+    const method: MethodIsCalledArgs = new MethodIsCalledArgs('preventDefault', 'eventMethod');
+    method.object = event;
+    method.onMethodArgs = [event];
+    test.methodIsCalled(method);
   });
 
   it('methodReturns', () => {

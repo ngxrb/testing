@@ -19,12 +19,17 @@ describe('MethodIsCalledArgs', () => {
   });
 
   it('.method is setted in the constructor', () => {
-    model = new MethodIsCalledArgs(testString);
+    model = new MethodIsCalledArgs(testString, testString);
     expect(model.method).toEqual(testString);
   });
 
   it('.onMethod exists', () => {
     expect(model.hasOwnProperty('onMethod')).toBeTruthy();
+  });
+
+  it('.onMethod is setted in the constructor', () => {
+    model = new MethodIsCalledArgs(testString, testString);
+    expect(model.onMethod).toEqual(testString);
   });
 
   it('.object exists', () => {
