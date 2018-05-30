@@ -17,12 +17,21 @@ sudo: required
 addons:
   chrome: stable
 
-jobs:
-  include:
-    - stage: release
-      script: npm run build
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script:
-          - npx semantic-release
+install:
+  - npm ci
+
+before_script:
+  - npm prune
+
+script:
+  - npm run test
+  - npm run lint
+  - npm run release:semantic
+  - npm run build
+
+after_success:
+  - npm run deploy:npm
+  - npm run deploy:coverage
+
+notifications:
+  email: false
