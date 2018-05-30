@@ -17,6 +17,7 @@ sudo: required
 addons:
   chrome: stable
 
+
 jobs:
   include:
     - stage: release
@@ -25,4 +26,5 @@ jobs:
         provider: script
         skip_cleanup: true
         script:
+          - npm run build
           - npx semantic-release
