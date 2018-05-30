@@ -1,5 +1,7 @@
 // Public types
 export { Pk } from './lib/types/pk.type';
+// Mocks
+export { MockChangeDetectorRef } from './lib/mocks/mock-change-detector-ref.model';
 // Public abstracts
 export { ModelAbstract } from './lib/abstracts/model.abstract';
 // Public models
@@ -7,7 +9,7 @@ export { DisplayValueArgs } from './lib/models/display-value-args.model';
 export { IsEmittedArgs } from './lib/models/is-emitted-args.model';
 export { MethodIsCalledArgs } from './lib/models/method-is-called-args.model';
 export { OtherTestModel } from './lib/models/other-test.model';
-export { PipeModel } from 'dist/lib/models/pipe.model';
+export { PipeModel } from './lib/models/pipe.model';
 export { TestModel } from './lib/models/test.model';
 export { TestBedConfig } from './lib/models/testbed-config.model';
 // Public data

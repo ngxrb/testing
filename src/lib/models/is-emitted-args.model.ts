@@ -14,7 +14,7 @@ export class IsEmittedArgs {
   /**
    * (Optional) The args needed to invoke the method that fires the event to test.
    */
-  public onMethodArgs?: any[];
+  public onMethodArgs: any[] = [];
 
   /**
    * Creates an instance of IsEmittedArgs.

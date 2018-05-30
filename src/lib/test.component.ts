@@ -5,7 +5,6 @@ import { toJS } from 'mobx';
 import { TestAngularAbstract } from './abstracts/test-angular.abstract';
 import { DisplayValueArgs } from './models/display-value-args.model';
 import { IsEmittedArgs } from './models/is-emitted-args.model';
-import { MethodIsCalledArgs } from './models/method-is-called-args.model';
 import { TestBedConfig } from './models/testbed-config.model';
 
 export class TestComponent<T> extends TestAngularAbstract<T> {
@@ -23,47 +22,35 @@ export class TestComponent<T> extends TestAngularAbstract<T> {
     return super.setTestBed(clazz, config);
   }
 
-  public methodIsCalled(args: MethodIsCalledArgs): void {
-    if (!args.onMethod) {
-      args.onMethod = 'onInit';
-    }
-    super.methodIsCalled(args);
-  }
-
   public isEmitted(args: IsEmittedArgs): void {
-    if (this.isInstanceOf(args.output, EventEmitter)) {
-      spyOn(this.clazz[args.output], 'emit');
-      expect(this.clazz[args.output].emit).not.toHaveBeenCalled();
-      if (args.onMethod !== undefined) {
-        const onMethodArgs: any[] = args.onMethodArgs !== undefined ? args.onMethodArgs : [];
-        this.clazz[args.onMethod](...onMethodArgs);
-      }
-      this.fixture
-        .whenStable()
-        .then(() => expect(this.clazz[args.output].emit).toHaveBeenCalledWith(args.value))
-        .catch();
+    this.isInstanceOf(args.output, EventEmitter);
+    spyOn(this.clazz[args.output], 'emit');
+    expect(this.clazz[args.output].emit).not.toHaveBeenCalled();
+    if (args.onMethod === undefined) {
+      args.onMethod = 'ngOnInit';
     }
+    this.clazz[args.onMethod](...args.onMethodArgs);
+    this.fixture
+      .whenStable()
+      .then(() => expect(this.clazz[args.output].emit).toHaveBeenCalledWith(args.value))
+      .catch();
   }
 
   public displayValue(args: DisplayValueArgs<any>): void {
     const element: DebugElement | undefined = this.selectorExist(args.selector);
-    if (element !== undefined) {
-      expect(toJS(this.clazz[args.property])).toEqual(args.propertyValue);
-      expect(element.nativeElement.textContent).toContain(args.selectorValue);
-    }
+    expect(toJS(this.clazz[args.property])).toEqual(args.propertyValue);
+    expect((element as DebugElement).nativeElement.textContent).toContain(args.selectorValue);
   }
 
-  public clickSelectorCalls(selector: string, method: keyof T): void {
+  public eventCalls(event: string, selector: string, method: keyof T): void {
     const element: DebugElement | undefined = this.selectorExist(selector);
-    if (element !== undefined) {
-      spyOn(this.clazz, method);
-      expect(this.clazz[method]).not.toHaveBeenCalled();
-      element.nativeElement.click();
-      this.fixture
-        .whenStable()
-        .then(() => expect(this.clazz[method]).toHaveBeenCalled())
-        .catch();
-    }
+    spyOn(this.clazz, method);
+    expect(this.clazz[method]).not.toHaveBeenCalled();
+    (element as DebugElement).triggerEventHandler(event, new MouseEvent(event));
+    this.fixture
+      .whenStable()
+      .then(() => expect(this.clazz[method]).toHaveBeenCalled())
+      .catch();
   }
 
   public selectorExist(selector: string): DebugElement | undefined {

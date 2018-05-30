@@ -7,9 +7,9 @@ export class MethodIsCalledArgs {
    */
   public method: any;
   /**
-   * (Optional) The method that fires the method to test.
+   * The method that fires the method to test.
    */
-  public onMethod?: any;
+  public onMethod: any;
   /**
    * (Optional) The object that defines the method if differ from the tested one.
    */
@@ -17,17 +17,18 @@ export class MethodIsCalledArgs {
   /**
    * (Optional) The args needed to invoke the method to test.
    */
-  public methodArgs?: any[];
+  public methodArgs: any[] = [];
   /**
    * (Optional) The args needed to invoke the method that fires the method to test.
    */
-  public onMethodArgs?: any[];
+  public onMethodArgs: any[] = [];
 
   /**
    * Creates an instance of MethodIsCalledArgs.
    * @param method The method to test.
    */
-  constructor(method: any) {
+  constructor(method: any, onMethod: any) {
     this.method = method;
+    this.onMethod = onMethod;
   }
 }

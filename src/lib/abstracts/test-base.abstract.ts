@@ -82,15 +82,9 @@ export abstract class TestBaseAbstract<T> {
     }
     spyOn(args.object, args.method);
     expect(args.object[args.method]).not.toHaveBeenCalled();
-    if (args.onMethodArgs === undefined) {
-      args.onMethodArgs = [];
-    }
-    if (!args.onMethod) {
-      args.onMethod = 'constructor';
-    }
     this.clazz[args.onMethod](...args.onMethodArgs);
     expect(args.object[args.method]).toHaveBeenCalled();
-    if (args.methodArgs !== undefined) {
+    if (args.methodArgs.length > 0) {
       expect(args.object[args.method]).toHaveBeenCalledWith(...args.methodArgs);
     }
   }
