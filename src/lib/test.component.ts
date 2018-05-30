@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { toJS } from 'mobx';
 import { TestAngularAbstract } from './abstracts/test-angular.abstract';
-import { DisplayValue } from './models/display-value.model';
+import { DisplayValueArgs } from './models/display-value-args.model';
 import { IsEmittedArgs } from './models/is-emitted-args.model';
 import { MethodIsCalledArgs } from './models/method-is-called-args.model';
 import { TestBedConfig } from './models/testbed-config.model';
@@ -45,7 +45,7 @@ export class TestComponent<T> extends TestAngularAbstract<T> {
     }
   }
 
-  public displayValue(args: DisplayValue<any>): void {
+  public displayValue(args: DisplayValueArgs<any>): void {
     const element: DebugElement | undefined = this.selectorExist(args.selector);
     if (element !== undefined) {
       expect(toJS(this.clazz[args.property])).toEqual(args.propertyValue);

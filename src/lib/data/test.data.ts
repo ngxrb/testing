@@ -4,9 +4,9 @@ import { OtherTestModel } from '../models/other-test.model';
 import { TestModel } from '../models/test.model';
 import { TestBedConfig } from '../models/testbed-config.model';
 
-export const testString: string = '1';
-export const testString2: string = '2';
-export const testString3: string = '3';
+export const testString: string = 'test1';
+export const testString2: string = 'test2';
+export const testString3: string = 'test3';
 export const testStringArray: string[] = [testString, testString2];
 
 export const testNumber: number = 1;
