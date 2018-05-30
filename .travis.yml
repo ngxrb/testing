@@ -21,10 +21,7 @@ addons:
 jobs:
   include:
     - stage: release
-      script: skip
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script:
-          - npm run build
-          - npx semantic-release
+      script:
+        - npm run build
+        - npx semantic-release
+
