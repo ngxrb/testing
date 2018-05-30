@@ -75,7 +75,8 @@
     "test:watch": "ng test",
     "lint": "ng lint --fix --type-check",
     "coverage": "npm run test -- --code-coverage",
-    "docs": "compodoc -p src/tsconfig.lib.json --disablePrivate --hideGenerator"
+    "docs": "compodoc -p src/tsconfig.lib.json --disablePrivate --hideGenerator",
+    "prepublish": "cp -r package.json dist"
   },
   "prettier": {
     "printWidth": 100,
