@@ -1,3 +1,11 @@
+<a name="1.1.4"></a>
+## [1.1.4](https://github.com/ngxrb/testing/compare/v1.1.3...v1.1.4) (2018-05-30)
+
+
+### Bug Fixes
+
+* **ci:** errors on build ([a017ada](https://github.com/ngxrb/testing/commit/a017ada))
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/ngxrb/testing/compare/v1.1.2...v1.1.3) (2018-05-29)
 
