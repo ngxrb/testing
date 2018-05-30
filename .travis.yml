@@ -2,6 +2,7 @@ language: node_js
 
 node_js:
   - 8
+  - 10
 
 cache:
   directories:
@@ -16,21 +17,12 @@ sudo: required
 addons:
   chrome: stable
 
-install:
-  - npm install
-
-before_script:
-  - npm prune
-
-script:
-  - npm run test
-  - npm run lint
-  - npm run release:semantic
-  - npm run build
-
-after_success:
-  - npm run deploy:npm
-  - npm run deploy:coverage
-
-notifications:
-  email: false
+jobs:
+  include:
+    - stage: release
+      script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release

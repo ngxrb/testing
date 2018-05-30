@@ -72,12 +72,8 @@
     "ng": "ng",
     "build": "ng build",
     "test": "ng test --browsers ChromeHeadlessNoSandbox --watch false --code-coverage",
-    "test:watch": "ng test --code-coverage",
+    "test:watch": "ng test",
     "lint": "ng lint --fix --type-check",
-    "release:semantic": "semantic-release pre",
-    "deploy:npm": "npm publish ./dist",
-    "postdeploy:npm": "semantic-release post",
-    "deploy:coverage": "cat ./coverage/lcov.info | coveralls",
     "docs": "compodoc -p src/tsconfig.lib.json --disablePrivate --hideGenerator"
   },
   "prettier": {
@@ -87,11 +83,19 @@
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
+      "@semantic-release/npm",
       "@semantic-release/git"
     ],
     "prepare": [
       "@semantic-release/changelog",
+      "@semantic-release/npm",
       "@semantic-release/git"
+    ],
+    "publish": [
+      {
+        "path": "@semantic-release/npm",
+        "pkgRoot": "./dist"
+      }
     ]
   },
   "publishConfig": {
