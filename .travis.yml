@@ -2,7 +2,6 @@ language: node_js
 
 node_js:
   - 8
-  - 10
 
 cache:
   directories:
@@ -18,7 +17,7 @@ addons:
   chrome: stable
 
 install:
-  - npm ci
+  - npm install
 
 before_script:
   - npm prune
