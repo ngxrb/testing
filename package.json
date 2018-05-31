@@ -74,7 +74,8 @@
     "test": "ng test --browsers ChromeHeadlessNoSandbox --watch false --code-coverage",
     "test:watch": "ng test",
     "lint": "ng lint --fix --type-check",
-    "docs": "compodoc -p src/tsconfig.lib.json --disablePrivate"
+    "docs": "compodoc -p src/tsconfig.lib.json --disablePrivate",
+    "postpublish": "cp -r dist/package.json ."
   },
   "publishConfig": {
     "access": "public"
