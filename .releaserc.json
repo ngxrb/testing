@@ -5,11 +5,10 @@
     "@semantic-release/npm",
     "@semantic-release/git"
   ],
-  "prepare": [
-    "@semantic-release/changelog",
-    "@semantic-release/npm",
+  "prepare": ["@semantic-release/changelog", "@semantic-release/npm", "@semantic-release/git"],
+  "publish": [
     {
-      "path": "@semantic-release/git",
+      "path": "@semantic-release/github",
       "assets": ["package.json"]
     }
   ]
