@@ -20,7 +20,11 @@ addons:
 
 jobs:
   include:
-    - stage: release
+    - stage: test
+      script:
+        - npm run test
+        - npm run lint
+    - stage: deploy
       script:
         - npm run build
         - npx semantic-release
