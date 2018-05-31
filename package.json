@@ -71,11 +71,13 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build",
-    "test": "ng test --browsers ChromeHeadlessNoSandbox --watch false --code-coverage",
-    "test:watch": "ng test",
-    "lint": "ng lint --fix --type-check",
-    "docs": "compodoc -p src/tsconfig.lib.json --disablePrivate",
-    "postpublish": "cp -r dist/package.json ."
+    "build:ci": "rpm run build -- --configuration production",
+    "test": "ng test",
+    "test:ci": "npm run test -- --browsers ChromeHeadlessNoSandbox --watch false --code-coverage",
+    "lint": "ng lint",
+    "lint:ci": "npm run lint -- --fix",
+    "docs": "compodoc -p ./src/tsconfig.lib.json --disablePrivate",
+    "docs:ci": "npm run docs -- --coverageTest 80"
   },
   "publishConfig": {
     "access": "public"
