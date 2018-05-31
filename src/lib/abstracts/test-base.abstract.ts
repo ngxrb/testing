@@ -94,10 +94,17 @@ export abstract class TestBaseAbstract<T> {
    * @param method The method to check.
    * @param value The expected returned value.
    * @param [args] The arguments of the method.
+   * @returns True if the method returns the specified value. False otherwise.
    */
-  public methodReturns(method: keyof T, value: any, ...args: any[]): void {
+  public methodReturns(method: keyof T, value: any, ...args: any[]): boolean {
     this.memberExist(method);
-    expect(this.clazz[method](...args)).toEqual(value);
+    const methodValue: any = this.clazz[method](...args);
+    const result: boolean = methodValue === value;
+    expect(result).toBeTruthy(
+      `Method "${method}" returns "${methodValue}" and was expected "${value}"`
+    );
+
+    return result;
   }
 
   /**
@@ -105,19 +112,31 @@ export abstract class TestBaseAbstract<T> {
    * @param method The method to check.
    * @param value The expected returned flat value.
    * @param [args] The arguments of the method.
+   * @returns True if the method returns the specified flat value. False otherwise.
    */
-  public methodReturnsFlat(method: keyof T, value: any, ...args: any[]): void {
+  public methodReturnsFlat(method: keyof T, value: any, ...args: any[]): boolean {
     this.memberExist(method);
-    expect(asString(this.clazz[method](...args))).toEqual(asString(value));
+    const methodValue: any = asString(this.clazz[method](...args));
+    const expectedValue: any = asString(value);
+    const result: boolean = methodValue === expectedValue;
+    expect(result).toBeTruthy(
+      `Method "${method}" returns "${methodValue}" and was expected "${expectedValue}"`
+    );
+
+    return result;
   }
 
   /**
    * Check that the class member exists.
    * @param member The class member to be checked.
    * @param [clazz] The class to be checked.
+   * @returns True if the member exists. False otherwise.
    */
-  public memberExist(member: any, clazz?: any): void {
-    const object: any = clazz ? clazz : this.clazz;
-    expect(object[member]).toBeDefined(`"${member}" is not defined in ${object.constructor.name}`);
+  public memberExist(member: string, clazz?: any): boolean {
+    const object: any = clazz || this.clazz;
+    const result: boolean = member in object;
+    expect(result).toBeTruthy(`"${member}" is not defined in "${object.constructor.name}"`);
+
+    return result;
   }
 }
