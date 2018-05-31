@@ -1,3 +1,11 @@
+<a name="1.2.4"></a>
+## [1.2.4](https://github.com/ngxrb/testing/compare/v1.2.3...v1.2.4) (2018-05-31)
+
+
+### Bug Fixes
+
+* **ci:** added github dep ([c7dac10](https://github.com/ngxrb/testing/commit/c7dac10))
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/ngxrb/testing/compare/v1.2.1...v1.2.2) (2018-05-31)
 
