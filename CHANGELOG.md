@@ -1,3 +1,13 @@
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/ngxrb/testing/compare/v1.2.1...v1.2.2) (2018-05-31)
+
+
+### Bug Fixes
+
+* **ci:** fixed dir change ([89bc3f1](https://github.com/ngxrb/testing/commit/89bc3f1))
+* **ci:** test fix ([20e3a54](https://github.com/ngxrb/testing/commit/20e3a54))
+* **ci:** test new config ([d1f0953](https://github.com/ngxrb/testing/commit/d1f0953))
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/ngxrb/testing/compare/v1.2.0...v1.2.1) (2018-05-30)
 
