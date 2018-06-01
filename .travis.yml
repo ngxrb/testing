@@ -22,8 +22,8 @@ jobs:
   include:
     - stage: test
       script:
-        - npm run test
-        - npm run lint
+        - npm run test:ci
+        - npm run lint:ci
     - stage: deploy
       script:
         - npm run build
