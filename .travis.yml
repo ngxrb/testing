@@ -17,12 +17,8 @@ sudo: required
 addons:
   chrome: stable
 
-
 jobs:
   include:
-    - stage: test
-      script:
-        - npm run test
     - stage: analysis
       script:
         - npm run lint:ci
