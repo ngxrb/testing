@@ -22,10 +22,12 @@ jobs:
   include:
     - stage: test
       script:
-        - npm run test:ci
+        - npm run test
+    - stage: analysis
+      script:
         - npm run lint:ci
     - stage: deploy
       script:
-        - npm run build
+        - npm run build:ci
         - npx semantic-release
 

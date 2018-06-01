@@ -73,9 +73,8 @@
     "build": "ng build",
     "build:ci": "rpm run build -- --configuration production",
     "test:watch": "ng test",
-    "test": "npm run test -- --browsers ChromeHeadlessNoSandbox --watch false --code-coverage",
-    "lint": "ng lint",
-    "lint:ci": "npm run lint -- --fix",
+    "test": "npm run test --browsers ChromeHeadlessNoSandbox --watch false --code-coverage",
+    "lint": "ng lint --fix",
     "docs": "compodoc -p ./src/tsconfig.lib.json --disablePrivate",
     "docs:ci": "npm run docs -- --coverageTest 80"
   },
