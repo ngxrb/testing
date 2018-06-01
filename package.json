@@ -71,7 +71,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build",
-    "build:ci": "rpm run build -- --configuration production",
+    "build:prod": "rpm run build -- --configuration production",
     "test:watch": "ng test --browsers=Chrome",
     "test": "ng test --watch=false --code-coverage",
     "lint": "ng lint --fix",

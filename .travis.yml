@@ -21,9 +21,9 @@ jobs:
   include:
     - stage: analysis
       script:
-        - npm run lint:ci
+        - npm run lint
     - stage: deploy
       script:
-        - npm run build:ci
+        - npm run build:prod
         - npx semantic-release
 
