@@ -73,14 +73,14 @@ describe('TestComponent', () => {
     test = new TestComponent(TestComponentComponent);
   });
 
-  it('clazz is setted', () => {
+  it('.clazz is setted', () => {
     expect(test.clazz).not.toBeUndefined();
     expect(test.clazz).not.toBeNull();
     expect(test.clazz).not.toEqual(new TestModel(testString));
     expect(test.clazz).toEqual(new TestComponentComponent());
   });
 
-  it('fixture is setted', () => {
+  it('.fixture is setted', () => {
     expect(test.fixture).not.toBeUndefined();
   });
 
