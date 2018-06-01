@@ -1,3 +1,11 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/ngxrb/testing/compare/v1.2.4...v1.3.0) (2018-06-01)
+
+
+### Features
+
+* **service:** basic service testing config ([6a877dc](https://github.com/ngxrb/testing/commit/6a877dc))
+
 <a name="1.2.4"></a>
 ## [1.2.4](https://github.com/ngxrb/testing/compare/v1.2.3...v1.2.4) (2018-05-31)
 
