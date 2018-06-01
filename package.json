@@ -71,10 +71,11 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build",
-    "build:prod": "rpm run build -- --configuration production",
+    "build:prod": "ng build --configuration production",
     "test:watch": "ng test --browsers=Chrome",
     "test": "ng test --watch=false --code-coverage",
-    "lint": "ng lint --fix",
+    "lint": "ng lint --type-check",
+    "lint:fix": "ng lint --type-check --fix",
     "docs": "compodoc -p ./src/tsconfig.lib.json --disablePrivate",
     "docs:ci": "npm run docs -- --coverageTest 80"
   },
