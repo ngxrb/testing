@@ -73,7 +73,7 @@
     "build": "ng build",
     "build:ci": "rpm run build -- --configuration production",
     "test:watch": "ng test --browsers=Chrome",
-    "test": "npm run test --watch=false --code-coverage",
+    "test": "ng test --watch=false --code-coverage",
     "lint": "ng lint --fix",
     "docs": "compodoc -p ./src/tsconfig.lib.json --disablePrivate",
     "docs:ci": "npm run docs -- --coverageTest 80"
