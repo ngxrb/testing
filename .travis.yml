@@ -8,21 +8,25 @@ cache:
   directories:
     - $HOME/.npm
 
-branches:
-  only:
-    - master
-
-sudo: required
-
-addons:
-  chrome: stable
+stages:
+  - test
+  - analysis
+  - deploy
 
 jobs:
   include:
+    - stage: test
+      sudo: required
+      addons:
+        chrome: stable
+      script:
+        - npm run test
     - stage: analysis
+      if: branch = master
       script:
         - npm run lint
     - stage: deploy
+      if: branch = master
       script:
         - npm run build:prod
         - npx semantic-release
