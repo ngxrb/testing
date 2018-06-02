@@ -1,5 +1,6 @@
 {
   "name": "@ngxrb/testing",
+  "description": "AngularRB library to help with unit and integration testing of Angular artifacts",
   "version": "0.0.0-semantic-release",
   "keywords": [
     "test",
@@ -72,12 +73,12 @@
     "ng": "ng",
     "build": "ng build",
     "build:prod": "ng build --configuration production",
-    "test:watch": "ng test --browsers=Chrome",
-    "test": "ng test --watch=false --code-coverage",
+    "test:watch": "ng test --browsers Chrome --code-coverage",
+    "test": "ng test --watch false --code-coverage",
     "lint": "ng lint --type-check",
-    "lint:fix": "ng lint --type-check --fix",
-    "docs": "compodoc -p ./src/tsconfig.lib.json --disablePrivate",
-    "docs:ci": "npm run docs -- --coverageTest 80"
+    "lint:fix": "npm run lint -- --fix",
+    "docs": "compodoc",
+    "docs:ci": "npm run docs -- --coverageTest 80 --output ./docs"
   },
   "publishConfig": {
     "access": "public"
