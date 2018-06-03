@@ -1,3 +1,17 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/ngxrb/testing/compare/v1.3.0...v1.4.0) (2018-06-03)
+
+
+### Bug Fixes
+
+* **TestBaseAbstract:** fix param ([f51399f](https://github.com/ngxrb/testing/commit/f51399f))
+* **TestService:** added test service to the API export ([89bb593](https://github.com/ngxrb/testing/commit/89bb593))
+
+
+### Features
+
+* **TestHttpService:** added basic HTTP service testing ([61bdea3](https://github.com/ngxrb/testing/commit/61bdea3))
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/ngxrb/testing/compare/v1.2.4...v1.3.0) (2018-06-01)
 
