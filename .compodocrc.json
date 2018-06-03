@@ -1,6 +1,6 @@
 {
   "tsconfig": "./src/tsconfig.lib.json",
-  "name": "AngularRB testing library",
+  "name": "AngularRB Testing Library",
   "disablePrivate": true,
   "silent": true
 }
