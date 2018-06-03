@@ -1,5 +1,7 @@
 language: node_js
 
+dist: trusty
+
 node_js:
   - 8
   - 10
@@ -8,22 +10,30 @@ cache:
   directories:
     - $HOME/.npm
 
-branches:
-  only:
-    - master
-    - /^greenkeeper/.*$/
+stages:
+  - test
+  - analysis
+  - deploy
 
-sudo: required
-
-addons:
-  chrome: stable
+script: skip
 
 jobs:
   include:
+    - stage: test
+      sudo: required
+      addons:
+        chrome: stable
+      script:
+        - npm run test
     - stage: analysis
+      addons:
+        sonarcloud:
+          organization: "ngxrb"
       script:
         - npm run lint
+        - sonar-scanner
     - stage: deploy
+      if: branch = master
       script:
         - npm run build:prod
         - npx semantic-release

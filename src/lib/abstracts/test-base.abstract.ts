@@ -132,7 +132,7 @@ export abstract class TestBaseAbstract<T> {
    * @param [clazz] The class to be checked.
    * @returns True if the member exists. False otherwise.
    */
-  public memberExist(member: string, clazz?: any): boolean {
+  public memberExist(member: any, clazz?: any): boolean {
     const object: any = clazz || this.clazz;
     const result: boolean = member in object;
     expect(result).toBeTruthy(`"${member}" is not defined in "${object.constructor.name}"`);
