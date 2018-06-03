@@ -1,0 +1,1 @@
+# AngularRB Test Class
