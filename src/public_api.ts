@@ -24,3 +24,4 @@ export { isSubscribable } from './lib/utils/is-subscribable.function';
 export { TestClass } from './lib/test.class';
 export { TestComponent } from './lib/test.component';
 export { TestService } from './lib/test.service';
+export { TestHttpService } from './lib/test-http.service';
