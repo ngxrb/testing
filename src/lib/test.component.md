@@ -1,3 +1,3 @@
 # AngularRB Test Component
 
-Helper class to create unite annd integrations tests for components.
+Helper class to create unit and integrations tests for components.
