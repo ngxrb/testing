@@ -1,11 +1,12 @@
+import { HttpVerb } from '../enums/http-verb.enum';
 import { HttpTestArgs } from './http-test-args';
 
 export class HttpTestHeaderArgs extends HttpTestArgs {
   public name: string;
   public value?: any;
 
-  constructor(path: string, verb: string, response: any, onMethod: any, name: string) {
-    super(path, verb, response, onMethod);
+  constructor(url: string, verb: HttpVerb, response: any, onMethod: string, name: string) {
+    super(url, verb, response, onMethod);
     this.name = name;
   }
 }

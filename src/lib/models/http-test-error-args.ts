@@ -1,3 +1,4 @@
+import { HttpVerb } from '../enums/http-verb.enum';
 import { HttpTestArgs } from './http-test-args';
 
 export class HttpTestErrorArgs extends HttpTestArgs {
@@ -5,7 +6,7 @@ export class HttpTestErrorArgs extends HttpTestArgs {
   public name?: string;
   public message?: string;
 
-  constructor(path: string, verb: string, response: any, onMethod: any) {
-    super(path, verb, response, onMethod);
+  constructor(url: string, verb: HttpVerb, response: any, onMethod: string) {
+    super(url, verb, response, onMethod);
   }
 }

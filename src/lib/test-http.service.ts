@@ -10,8 +10,6 @@ import {
   TestRequest
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { Observable } from 'rxjs';
-import { HttpTestArgs } from './models/http-test-args';
 import { HttpTestBodyArgs } from './models/http-test-body-args';
 import { HttpTestErrorArgs } from './models/http-test-error-args';
 import { HttpTestHeaderArgs } from './models/http-test-header-args';
@@ -34,7 +32,7 @@ export class TestHttpService<T> extends TestService<T> {
   }
 
   public httpBody(args: HttpTestBodyArgs): void {
-    this.getResponse(args).subscribe(
+    this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
       (response: any) => {
         if (response instanceof HttpResponse) {
           expect(response.body).toEqual(args.body);
@@ -44,10 +42,13 @@ export class TestHttpService<T> extends TestService<T> {
       },
       (error: any | undefined) => expect(error).toBeUndefined()
     );
+    const req: TestRequest = this.httpMock.expectOne(args.url);
+    expect(req.request.method).toBe(args.verb);
+    req.flush(args.response);
   }
 
   public httpStatus(args: HttpTestStatusArgs): void {
-    this.getResponse(args).subscribe(
+    this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
       (response: any) => {
         this.isInstanceOf(response, HttpResponseBase);
         expect(response.status).toEqual(args.status);
@@ -57,10 +58,13 @@ export class TestHttpService<T> extends TestService<T> {
       },
       (error: any | undefined) => expect(error).toBeUndefined()
     );
+    const req: TestRequest = this.httpMock.expectOne(args.url);
+    expect(req.request.method).toBe(args.verb);
+    req.flush(args.response);
   }
 
   public httpHeader(args: HttpTestHeaderArgs): void {
-    this.getResponse(args).subscribe(
+    this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
       (response: any) => {
         this.isInstanceOf(response, HttpResponseBase);
         this.isInstanceOf(response.headers, HttpHeaders);
@@ -71,10 +75,13 @@ export class TestHttpService<T> extends TestService<T> {
       },
       (error: any | undefined) => expect(error).toBeUndefined()
     );
+    const req: TestRequest = this.httpMock.expectOne(args.url);
+    expect(req.request.method).toBe(args.verb);
+    req.flush(args.response);
   }
 
   public httpError(args: HttpTestErrorArgs): void {
-    this.getResponse(args).subscribe(
+    this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
       (response: any | undefined) => expect(response).toBeUndefined(),
       (error: any) => {
         this.isInstanceOf(error, HttpErrorResponse);
@@ -89,10 +96,13 @@ export class TestHttpService<T> extends TestService<T> {
         }
       }
     );
+    const req: TestRequest = this.httpMock.expectOne(args.url);
+    expect(req.request.method).toBe(args.verb);
+    req.flush(args.response);
   }
 
   public httpErrorStatus(args: HttpTestStatusArgs): void {
-    this.getResponse(args).subscribe(
+    this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
       (response: any | undefined) => expect(response).toBeUndefined(),
       (error: any) => {
         this.isInstanceOf(error, HttpErrorResponse);
@@ -102,14 +112,8 @@ export class TestHttpService<T> extends TestService<T> {
         }
       }
     );
-  }
-
-  private getResponse(args: HttpTestArgs): Observable<any> {
-    const response: Observable<any> = this.clazz[args.onMethod](...args.onMethodArgs);
     const req: TestRequest = this.httpMock.expectOne(args.url);
     expect(req.request.method).toBe(args.verb);
     req.flush(args.response);
-
-    return response;
   }
 }

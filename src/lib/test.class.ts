@@ -7,7 +7,7 @@ export class TestClass<T> extends TestBaseAbstract<T> {
   /**
    * Creates an instance of TestClass.
    * @param clazz The class to test.
-   * @param args Args needed to build the class.
+   * @param args The args needed to build the class.
    */
   constructor(clazz: any, ...args: any[]) {
     super();

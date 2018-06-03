@@ -1,17 +1,41 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { testModel } from './data/test.data';
+import { HttpVerb } from './enums/http-verb.enum';
+import { HttpTestBodyArgs } from './models/http-test-body-args';
 import { TestHttpService } from './test-http.service';
 
+const url: string = '/test';
+
 @Injectable()
-export class TestHttpServiceService {}
+export class TestHttpServiceService {
+  constructor(protected http: HttpClient) {}
+
+  public basicGet(): Observable<any> {
+    return this.http.get(url);
+  }
+}
 
 describe('TestHttpService', () => {
-  let model: TestHttpService<TestHttpServiceService>;
+  let test: TestHttpService<TestHttpServiceService>;
 
   beforeEach(() => {
-    model = new TestHttpService(TestHttpServiceService);
+    test = new TestHttpService(TestHttpServiceService);
   });
 
   it('.httpMock exists', () => {
-    expect(model.hasOwnProperty('httpMock')).toBeTruthy();
+    expect(test.hasOwnProperty('httpMock')).toBeTruthy();
+  });
+
+  it('httpBody', () => {
+    const args: HttpTestBodyArgs = new HttpTestBodyArgs(
+      url,
+      HttpVerb.GET,
+      testModel,
+      'basicGet',
+      testModel
+    );
+    test.httpBody(args);
   });
 });

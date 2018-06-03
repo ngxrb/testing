@@ -1,11 +1,12 @@
 import { testString } from '../data/test.data';
+import { HttpVerb } from '../enums/http-verb.enum';
 import { HttpTestArgs } from './http-test-args';
 
 describe('HttpTestArgs', () => {
   let model: HttpTestArgs;
 
   beforeEach(() => {
-    model = new HttpTestArgs(testString, testString, testString, testString);
+    model = new HttpTestArgs(testString, HttpVerb.GET, testString, testString);
   });
 
   it('.url exists', () => {
