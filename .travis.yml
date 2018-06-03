@@ -15,22 +15,19 @@ stages:
   - analysis
   - deploy
 
-script: skip
-
 jobs:
   include:
     - stage: test
       sudo: required
       addons:
         chrome: stable
-      script:
-        - npm run test
     - stage: analysis
       addons:
         sonarcloud:
           organization: "ngxrb"
       script:
         - npm run lint
+        - npm run test:coverage
         - sonar-scanner
     - stage: deploy
       if: branch = master
