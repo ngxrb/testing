@@ -32,49 +32,40 @@ export class TestHttpService<T> extends TestService<T> {
   }
 
   public httpBody(args: HttpTestBodyArgs): void {
-    this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
-      (response: any) => {
-        if (response instanceof HttpResponse) {
-          expect(response.body).toEqual(args.body);
-        } else {
-          expect(response).toEqual(args.body);
-        }
-      },
-      (error: any | undefined) => expect(error).toBeUndefined()
-    );
+    this.clazz[args.onMethod](...args.onMethodArgs).subscribe((response: any) => {
+      if (response instanceof HttpResponse) {
+        expect(response.body).toEqual(args.body);
+      } else {
+        expect(response).toEqual(args.body);
+      }
+    });
     const req: TestRequest = this.httpMock.expectOne(args.url);
     expect(req.request.method).toBe(args.verb);
     req.flush(args.response);
   }
 
   public httpStatus(args: HttpTestStatusArgs): void {
-    this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
-      (response: any) => {
-        this.isInstanceOf(response, HttpResponseBase);
-        expect(response.status).toEqual(args.status);
-        if (args.statusText !== undefined) {
-          expect(response.statusText).toEqual(args.statusText);
-        }
-      },
-      (error: any | undefined) => expect(error).toBeUndefined()
-    );
+    this.clazz[args.onMethod](...args.onMethodArgs).subscribe((response: any) => {
+      this.isInstanceOf(response, HttpResponseBase);
+      expect(response.status).toEqual(args.status);
+      if (args.statusText !== undefined) {
+        expect(response.statusText).toEqual(args.statusText);
+      }
+    });
     const req: TestRequest = this.httpMock.expectOne(args.url);
     expect(req.request.method).toBe(args.verb);
     req.flush(args.response);
   }
 
   public httpHeader(args: HttpTestHeaderArgs): void {
-    this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
-      (response: any) => {
-        this.isInstanceOf(response, HttpResponseBase);
-        this.isInstanceOf(response.headers, HttpHeaders);
-        expect(response.headers.has(args.name)).toBeTruthy();
-        if (args.value !== undefined) {
-          expect(response.headers.get(args.name)).toEqual(args.value);
-        }
-      },
-      (error: any | undefined) => expect(error).toBeUndefined()
-    );
+    this.clazz[args.onMethod](...args.onMethodArgs).subscribe((response: any) => {
+      this.isInstanceOf(response, HttpResponseBase);
+      this.isInstanceOf(response.headers, HttpHeaders);
+      expect(response.headers.has(args.name)).toBeTruthy();
+      if (args.value !== undefined) {
+        expect(response.headers.get(args.name)).toEqual(args.value);
+      }
+    });
     const req: TestRequest = this.httpMock.expectOne(args.url);
     expect(req.request.method).toBe(args.verb);
     req.flush(args.response);
@@ -82,7 +73,7 @@ export class TestHttpService<T> extends TestService<T> {
 
   public httpError(args: HttpTestErrorArgs): void {
     this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
-      (response: any | undefined) => expect(response).toBeUndefined(),
+      (response: any) => undefined,
       (error: any) => {
         this.isInstanceOf(error, HttpErrorResponse);
         if (args.error !== undefined) {
@@ -103,7 +94,7 @@ export class TestHttpService<T> extends TestService<T> {
 
   public httpErrorStatus(args: HttpTestStatusArgs): void {
     this.clazz[args.onMethod](...args.onMethodArgs).subscribe(
-      (response: any | undefined) => expect(response).toBeUndefined(),
+      (response: any) => undefined,
       (error: any) => {
         this.isInstanceOf(error, HttpErrorResponse);
         expect(error.status).toEqual(args.status);

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { testModel } from './data/test.data';
@@ -33,6 +33,17 @@ describe('TestHttpService', () => {
       url,
       HttpVerb.GET,
       testModel,
+      'basicGet',
+      testModel
+    );
+    test.httpBody(args);
+  });
+
+  it('httpBody HttpResponse', () => {
+    const args: HttpTestBodyArgs = new HttpTestBodyArgs(
+      url,
+      HttpVerb.GET,
+      new HttpResponse({ body: testModel }),
       'basicGet',
       testModel
     );
